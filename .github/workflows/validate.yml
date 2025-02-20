@@ -32,4 +32,4 @@ jobs:
       - name: Create validation database
         run: mysql --login-path=validate -s -N -e "CREATE DATABASE theezy_trader_validation"
       - name: Run schematic check
-        run: ./scheck.sh
+        run: bash scheck.sh
