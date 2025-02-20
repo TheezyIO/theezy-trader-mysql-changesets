@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LOGIN_PATH: validate
-      MYSQL_DATABASE: theezy_trader_validation
+      MYSQL_DB: theezy_trader_validation
+      MYSQL_PWD: root
 
     steps:
       - name: Checkout repository
@@ -29,8 +30,6 @@ jobs:
       - name: Create Mysql Login configuration
         run: mysql_config_editor set --login-path=validate --user root --host 127.0.0.1
       - name: Create validation database
-        run: mysql --login-path=validate -s -N -e "CREATE DATABASE ${{ vars.MYSQL_DATABASE }}"
+        run: mysql --login-path=validate -s -N -e "CREATE DATABASE theezy_trader_validation"
       - name: Run schematic check
-        env:
-          MYSQL_PWD: root
         run: ./scheck.sh
