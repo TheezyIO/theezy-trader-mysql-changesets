@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Download scheck v2 script from AWS S3
-        run: aws s3 cp s://theezy-app/scheck_v2.sh ./scheck.sh
+        run: aws s3 cp s3://theezy-app/scheck_v2.sh ./scheck.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
