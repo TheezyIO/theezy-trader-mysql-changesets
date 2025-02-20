@@ -16,15 +16,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Download scheck script
-        uses: keithweaver/aws-s3-github-action@v1.0.0
-        with:
-          command: cp
-          source: s3://theezy-app/scheck_v2.sh
-          destination: ./scheck.sh
-          aws_access_key_id: ${{ vars.AWS_ACCESS_KEY }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY }}
-          aws_region: us-east-1
+      - name: Download scheck v2 script from AWS S3
+        run: aws s3 cp s://theezy-app/scheck_v2.sh ./scheck.sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
+          AWS_SECREET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Start the MySQL service
         run: sudo systemctl start mysql.service
       - name: Create Mysql Login configuration
