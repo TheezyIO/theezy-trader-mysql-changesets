@@ -1,0 +1,30 @@
+# This workflow validates the database schematic changes
+name: validate-changeset
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      LOGIN_PATH: validate
+      MYSQL_DB: ${{ vars.MYSQL_DATABASE }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download scheck script
+        uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: cp
+          source: s3://theezy-app/scheck.sh
+          destination: ./scheck.sh
+          aws_access_key_id: ${{ vars.AWS_ACCESS_KEY }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY }}
+          aws_region: us-east-1
+      - name: Create validation database
+        run: mysql -s -N -e "CREATE DATABASE ${{ vars.MYSQL_DATABASE }}"
+      - name: Run schematic check
+        run: ./scheck.sh
