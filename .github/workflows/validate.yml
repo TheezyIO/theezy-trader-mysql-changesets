@@ -11,6 +11,7 @@ jobs:
     env:
       LOGIN_PATH: validate
       MYSQL_DB: theezy_trader_validation
+      MYSQL_HOST: 127.0.0.1
       MYSQL_PWD: root
 
     steps:
