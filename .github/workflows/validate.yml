@@ -20,7 +20,7 @@ jobs:
         run: aws s3 cp s://theezy-app/scheck_v2.sh ./scheck.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
-          AWS_SECREET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Start the MySQL service
         run: sudo systemctl start mysql.service
       - name: Create Mysql Login configuration
