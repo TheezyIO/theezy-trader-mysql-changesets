@@ -26,7 +26,11 @@ jobs:
           aws_region: us-east-1
       - name: Start the MySQL service
         run: sudo systemctl start mysql.service
+      - name: Create Mysql Login configuration
+        run: mysql_config_editor set --login-path=validate --user root --host 127.0.0.1
       - name: Create validation database
         run: mysql -s -N -e "CREATE DATABASE ${{ vars.MYSQL_DATABASE }}"
       - name: Run schematic check
+        env:
+          MYSQL_PWD: root
         run: ./scheck.sh
