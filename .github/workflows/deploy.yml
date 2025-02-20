@@ -16,6 +16,9 @@ jobs:
         name: Checkout repository
       - name: Download dbcc from AWS S3
         run: aws s3 cp s3://theezy-app/dbcc.sh ./dbcc.sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Create MySQL Login configuration
         run: mysql_config_editor set --login-path=sandbox --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }} 
       - name: Run changesets
