@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LOGIN_PATH: validate
-      MYSQL_DB: ${{ vars.MYSQL_DATABASE }}
+      MYSQL_DATABASE: theezy_trader_validation
 
     steps:
       - name: Checkout repository
