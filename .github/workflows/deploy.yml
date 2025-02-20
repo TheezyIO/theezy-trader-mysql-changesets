@@ -28,4 +28,5 @@ jobs:
           CHANGES_ENV: sandbox
           CHANGES_FILE: changes.txt
           CHANGES_TABLE: theezy_trader
+          LOGIN_PATH: sandbox
           MYSQL_PWD: ${{ secrets.MYSQL_PASSWORD }}
