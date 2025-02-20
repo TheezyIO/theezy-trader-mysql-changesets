@@ -24,6 +24,8 @@ jobs:
           aws_access_key_id: ${{ vars.AWS_ACCESS_KEY }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY }}
           aws_region: us-east-1
+      - name: Start the MySQL service
+        run: sudo systemctl start mysql.service
       - name: Create validation database
         run: mysql -s -N -e "CREATE DATABASE ${{ vars.MYSQL_DATABASE }}"
       - name: Run schematic check
