@@ -1,0 +1,27 @@
+# This workflow deploys the database schematic changes to a specified environment
+name: deploy-changeset
+
+on:
+  push:
+    branches: [ "sanbox", "development", "qa", "staging", "production" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sandbox-deployment:
+    runs-on: ubuntu-latest
+    environment: sandbox
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout repository
+      - name: Download dbcc from AWS S3
+        run: aws s3 cp s3://theezy-app/dbcc.sh ./dbcc.sh
+      - name: Create MySQL Login configuration
+        run: mysql_config_editor set --login-path=sandbox --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }} 
+      - name: Run changesets
+        run: bash dbcc.sh
+        env:
+          APP_DB: ${{ vars.MYSQL_DATABASE }}
+          CHANGES_ENV: sandbox
+          CHANGES_TABLE: theezy_trader
+          MYSQL_PWD: ${{ secrets.MYSQL_PASSWORD }}
