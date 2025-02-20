@@ -20,7 +20,9 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Create MySQL Login configuration
-        run: mysql_config_editor set --login-path=sandbox --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }} 
+        run: mysql_config_editor set --login-path=sandbox --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }}
+      - name: Display MySQL Login configuration
+        run: mysql_config_editor print --all
       - name: Run changesets
         run: bash dbcc.sh
         env:
