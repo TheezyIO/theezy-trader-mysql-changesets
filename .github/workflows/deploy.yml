@@ -26,5 +26,6 @@ jobs:
         env:
           APP_DB: ${{ vars.MYSQL_DATABASE }}
           CHANGES_ENV: sandbox
+          CHANGES_FILE: changes.txt
           CHANGES_TABLE: theezy_trader
           MYSQL_PWD: ${{ secrets.MYSQL_PASSWORD }}
