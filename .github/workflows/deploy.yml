@@ -3,14 +3,12 @@ name: deploy-changeset
 
 on:
   push:
-    branches: [ "sanbox", "development", "qa", "staging", "production" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "sandbox", "development", "qa", "staging", "production" ]
 
 jobs:
   sandbox-deployment:
     runs-on: ubuntu-latest
-    environment: sandbox
+    environment: ${{ github.event.ref }}
     steps:
       - uses: actions/checkout@v4
         name: Checkout repository
@@ -27,9 +25,9 @@ jobs:
         run: bash dbcc.sh
         env:
           APP_DB: ${{ vars.MYSQL_DATABASE }}
-          CHANGES_ENV: sandbox
+          CHANGES_ENV: ${{ github.event.ref }}
           CHANGES_HOME: ${{ github.workspace }}
           CHANGES_FILE: changes.txt
           CHANGES_TABLE: theezy_trader
-          LOGIN_PATH: sandbox
+          LOGIN_PATH: ${{ github.event.ref }}
           MYSQL_PWD: ${{ secrets.MYSQL_PASSWORD }}
