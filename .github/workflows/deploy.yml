@@ -6,7 +6,7 @@ on:
     branches: [ "sandbox", "development", "qa", "staging", "production" ]
 
 jobs:
-  sandbox-deployment:
+  deployment:
     runs-on: ubuntu-latest
     environment: ${{ github.event.ref }}
     steps:
