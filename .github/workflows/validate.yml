@@ -1,0 +1,31 @@
+# This workflow validates the database schematic changes
+name: validate-changeset
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      LOGIN_PATH: validate
+      MYSQL_DB: theezy_trader_validation
+      MYSQL_PWD: root
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download scheck v2 script from AWS S3
+        run: aws s3 cp s3://theezy-app/scheck_v2.sh ./scheck.sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      - name: Start the MySQL service
+        run: sudo systemctl start mysql.service
+      - name: Create Mysql Login configuration
+        run: mysql_config_editor set --login-path=validate --user root --host 127.0.0.1
+      - name: Create validation database
+        run: mysql --login-path=validate -s -N -e "CREATE DATABASE theezy_trader_validation"
+      - name: Run schematic check
+        run: bash scheck.sh
