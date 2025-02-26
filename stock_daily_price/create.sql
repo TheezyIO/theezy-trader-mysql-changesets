@@ -1,0 +1,7 @@
+CREATE TABLE StockDailyPrice (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    price BIGINT UNSIGNED NOT NULL,
+    stockId INT,
+    eventTime DATE NOT NULL,
+    FOREIGN KEY (stockId) REFERENCES Stock(id) ON DELETE CASCADE
+);

@@ -1,0 +1,8 @@
+CREATE TABLE PortfolioBalance (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    portfolioId INT,
+    cash BIGINT UNSIGNED NOT NULL,
+    equity BIGINT UNSIGNED NOT NULL,
+    modified DATETIME(3) NOT NULL,
+    FOREIGN KEY (portfolioId) REFERENCES Portfolio(id) ON DELETE CASCADE
+);
