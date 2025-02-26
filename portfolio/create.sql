@@ -1,13 +1,14 @@
-CREATE TABLE Portfolio (
+CREATE TABLE portfolio (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
     description VARCHAR(300),
-    maxMembers INT NOT NULL,
-    minimumDeposit BIGINT UNSIGNED NOT NULL,
-    feeRate BIGINT UNSIGNED NOT NULL,
-    lockPeriod INT NOT NULL,
+    max_members INT NOT NULL,
+    minimum_deposit BIGINT UNSIGNED NOT NULL,
+    fee_rate BIGINT UNSIGNED NOT NULL,
+    lock_period INT NOT NULL,
     created DATETIME(3) NOT NULL,
     modified DATETIME(3) NOT NULL,
-    userId VARCHAR(255),
-    FOREIGN KEY (userId) REFERENCES User(id) ON DELETE CASCADE
+    user_id VARCHAR(255),
+    
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );

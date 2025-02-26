@@ -1,8 +1,9 @@
-CREATE TABLE AccountBalance (
+CREATE TABLE account_balance (
     id INT PRIMARY KEY AUTO_INCREMENT,
     cash BIGINT UNSIGNED NOT NULL,
     equity BIGINT UNSIGNED NOT NULL,
-    userId VARCHAR(255),
+    user_id VARCHAR(255),
     modified DATETIME(3) NOT NULL,
-    FOREIGN KEY (userId) REFERENCES User(id) ON DELETE CASCADE
+    
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );

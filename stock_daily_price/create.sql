@@ -3,5 +3,6 @@ CREATE TABLE StockDailyPrice (
     price BIGINT UNSIGNED NOT NULL,
     stockId INT,
     eventTime DATE NOT NULL,
+    
     FOREIGN KEY (stockId) REFERENCES Stock(id) ON DELETE CASCADE
 );

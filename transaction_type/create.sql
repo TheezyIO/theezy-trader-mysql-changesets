@@ -1,5 +1,5 @@
-CREATE TABLE TransactionType (
+CREATE TABLE transaction_type (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(15) NOT NULL,
-    feeRate BIGINT UNSIGNED NOT NULL
+    fee_rate BIGINT UNSIGNED NOT NULL
 );

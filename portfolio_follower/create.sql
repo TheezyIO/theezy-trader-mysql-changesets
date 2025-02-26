@@ -1,8 +1,9 @@
-CREATE TABLE PortfolioFollower (
+CREATE TABLE portfolio_follower (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    userId VARCHAR(255),
-    portfolioId INT,
+    user_id VARCHAR(255),
+    portfolio_id INT,
     created DATETIME(3) NOT NULL,
-    FOREIGN KEY (userId) REFERENCES User(id) ON DELETE CASCADE,
-    FOREIGN KEY (portfolioId) REFERENCES Portfolio(id) ON DELETE CASCADE
+    
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+    FOREIGN KEY (portfolio_id) REFERENCES portfolio(id) ON DELETE CASCADE
 );
