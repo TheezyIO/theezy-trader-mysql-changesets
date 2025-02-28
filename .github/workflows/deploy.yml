@@ -8,7 +8,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.ref }}
+    environment: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v4
         name: Checkout repository
@@ -18,14 +18,14 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Create MySQL Login configuration
-        run: mysql_config_editor set --login-path=sandbox --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }}
+        run: mysql_config_editor set --login-path=${{ github.ref_name }} --user ${{ vars.MYSQL_USERNAME }} --host ${{ vars.MYSQL_HOSTNAME }}
       - name: Display MySQL Login configuration
         run: mysql_config_editor print --all
       - name: Run changesets
         run: bash dbcc.sh
         env:
           APP_DB: ${{ vars.MYSQL_DATABASE }}
-          CHANGES_ENV: ${{ github.event.ref }}
+          CHANGES_ENV: ${{ github.ref_name }}
           CHANGES_HOME: ${{ github.workspace }}
           CHANGES_FILE: changes.txt
           CHANGES_TABLE: theezy_trader

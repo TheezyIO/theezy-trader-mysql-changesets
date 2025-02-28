@@ -1,1 +1,14 @@
 /user/create.sql
+/transaction_type/create.sql
+/stock/create.sql
+/portfolio/create.sql
+/portfolio_balance/create.sql
+/portfolio_stock/create.sql
+/account_balance/create.sql
+/portfolio_member/create.sql
+/portfolio_follower/create.sql
+/portfolio_balance_transaction/create.sql
+/portfolio_stock_transaction/create.sql
+/account_balance_transaction/create.sql
+/stock_daily_price/create.sql
+
