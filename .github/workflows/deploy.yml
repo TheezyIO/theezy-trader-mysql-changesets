@@ -29,5 +29,5 @@ jobs:
           CHANGES_HOME: ${{ github.workspace }}
           CHANGES_FILE: changes.txt
           CHANGES_TABLE: theezy_trader
-          LOGIN_PATH: ${{ github.event.ref }}
+          LOGIN_PATH: ${{ github.ref_name }}
           MYSQL_PWD: ${{ secrets.MYSQL_PASSWORD }}
