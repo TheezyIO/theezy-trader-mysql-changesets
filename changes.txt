@@ -11,3 +11,4 @@
 /portfolio_stock_transaction/create.sql
 /account_balance_transaction/create.sql
 /stock_daily_price/create.sql
+
