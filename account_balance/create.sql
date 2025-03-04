@@ -3,7 +3,7 @@ CREATE TABLE account_balance (
     cash BIGINT UNSIGNED NOT NULL,
     equity BIGINT UNSIGNED NOT NULL,
     user_id VARCHAR(255),
-    modified DATETIME(3) NOT NULL,
+    modified_at TIMESTAMP NOT NULL,
     
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );

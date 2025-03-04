@@ -6,8 +6,8 @@ CREATE TABLE portfolio (
     minimum_deposit BIGINT UNSIGNED NOT NULL,
     fee_rate BIGINT UNSIGNED NOT NULL,
     lock_period INT NOT NULL,
-    created DATETIME(3) NOT NULL,
-    modified DATETIME(3) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    modified_at TIMESTAMP NOT NULL,
     user_id VARCHAR(255),
     
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE

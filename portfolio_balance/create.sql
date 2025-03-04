@@ -3,7 +3,7 @@ CREATE TABLE portfolio_balance (
     portfolio_id INT,
     cash BIGINT UNSIGNED NOT NULL,
     equity BIGINT UNSIGNED NOT NULL,
-    modified DATETIME(3) NOT NULL,
+    modified_at TIMESTAMP NOT NULL,
     
     FOREIGN KEY (portfolio_id) REFERENCES portfolio(id) ON DELETE CASCADE
 );
