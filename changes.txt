@@ -13,3 +13,4 @@
 /stock_daily_price/create.sql
 /stock/modify_name_type_long_length.sql
 /portfolio/add_day_change_columns.sql
+/portfolio/modify_name_length.sql
