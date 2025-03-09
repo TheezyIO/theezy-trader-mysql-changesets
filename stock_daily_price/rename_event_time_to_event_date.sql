@@ -1,0 +1,1 @@
+ALTER TABLE stock_daily_price CHANGE event_time event_date DATE NOT NULL;

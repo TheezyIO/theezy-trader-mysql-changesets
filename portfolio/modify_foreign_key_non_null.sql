@@ -1,0 +1,1 @@
+ALTER TABLE portfolio MODIFY user_id VARCHAR(255) NOT NULL;
