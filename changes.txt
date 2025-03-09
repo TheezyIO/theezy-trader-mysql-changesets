@@ -14,3 +14,13 @@
 /stock/modify_name_type_long_length.sql
 /portfolio/add_day_change_columns.sql
 /portfolio/modify_name_length.sql
+/portfolio/modify_foreign_key_non_null.sql
+/portfolio_balance/modify_foreign_key_non_null.sql
+/portfolio_stock/modify_foreign_key_non_null.sql
+/account_balance/modify_foreign_key_non_null.sql
+/portfolio_member/modify_foreign_key_non_null.sql
+/portfolio_follower/modify_foreign_key_non_null.sql
+/portfolio_balance_transaction/modify_foreign_key_non_null.sql
+/portfolio_stock_transaction/modify_foreign_key_non_null.sql
+/account_balance_transaction/modify_foreign_key_non_null.sql
+/stock_daily_price/modify_foreign_key_non_null.sql

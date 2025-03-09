@@ -1,0 +1,1 @@
+ALTER TABLE stock_daily_price MODIFY stock_id INT NOT NULL;
