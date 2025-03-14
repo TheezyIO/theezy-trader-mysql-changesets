@@ -1,0 +1,1 @@
+ALTER TABLE transaction_type DROP COLUMN fee_rate;
