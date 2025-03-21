@@ -28,3 +28,4 @@
 /transaction_type/remove_fee_rate_column.sql
 /portfolio/remove_fee_and_lock_add_members_and_followers.sql
 /portfolio/add_unique_index_name_and_user_id.sql
+/portfolio_balance_daily_history/create.sql
