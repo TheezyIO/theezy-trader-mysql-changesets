@@ -1,0 +1,1 @@
+ALTER TABLE portfolio_balance_transaction MODIFY COLUMN event_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;

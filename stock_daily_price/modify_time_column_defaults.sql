@@ -1,0 +1,1 @@
+ALTER TABLE stock_daily_price MODIFY COLUMN event_date DATE DEFAULT (CURRENT_DATE());
