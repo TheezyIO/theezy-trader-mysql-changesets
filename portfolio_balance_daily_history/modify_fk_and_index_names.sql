@@ -1,0 +1,3 @@
+ALTER TABLE portfolio_balance_daily_history
+DROP INDEX portfolio_balance_id_fk,
+ADD INDEX portfolio_balance_id_idx (portfolio_balance_id);
