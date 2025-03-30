@@ -3,8 +3,8 @@ DROP FOREIGN KEY portfolio_follower_ibfk_1,
 DROP FOREIGN KEY portfolio_follower_ibfk_2;
 
 ALTER TABLE portfolio_follower
-DROP INDEX IF EXISTS user_id,
-DROP INDEX IF EXISTS portfolio_id,
+DROP INDEX user_id,
+DROP INDEX portfolio_id,
 ADD INDEX user_id_idx (user_id),
 ADD INDEX portfolio_id_idx (portfolio_id);
 

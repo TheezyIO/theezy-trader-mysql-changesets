@@ -3,8 +3,8 @@ DROP FOREIGN KEY portfolio_stock_ibfk_1,
 DROP FOREIGN KEY portfolio_stock_ibfk_2;
 
 ALTER TABLE portfolio_stock
-DROP INDEX IF EXISTS stock_id,
-DROP INDEX IF EXISTS portfolio_id,
+DROP INDEX stock_id,
+DROP INDEX portfolio_id,
 ADD INDEX stock_id_idx (stock_id),
 ADD INDEX portfolio_id_idx (portfolio_id);
 
