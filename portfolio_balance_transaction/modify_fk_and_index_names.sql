@@ -4,9 +4,9 @@ DROP FOREIGN KEY portfolio_balance_transaction_ibfk_2,
 DROP FOREIGN KEY portfolio_balance_transaction_ibfk_3;
 
 ALTER TABLE portfolio_balance_transaction
-DROP INDEX IF EXISTS transaction_type_id,
-DROP INDEX IF EXISTS portfolio_balance_id,
-DROP INDEX IF EXISTS user_id,
+DROP INDEX IF EXISTS `transaction_type_id`,
+DROP INDEX IF EXISTS `portfolio_balance_id`,
+DROP INDEX IF EXISTS `user_id`,
 ADD INDEX transaction_type_id_idx (transaction_type_id),
 ADD INDEX portfolio_balance_id_idx (portfolio_balance_id),
 ADD INDEX user_id_idx (user_id);
