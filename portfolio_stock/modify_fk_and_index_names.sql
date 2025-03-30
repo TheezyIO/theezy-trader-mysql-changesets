@@ -9,7 +9,7 @@ ADD INDEX stock_id_idx (stock_id),
 ADD INDEX portfolio_id_idx (portfolio_id);
 
 ALTER TABLE portfolio_stock
-ADD CONSTRAINT stock_id_fk FOREIGN KEY (stock_id) 
+ADD CONSTRAINT portfolio_stock_stock_id_fk FOREIGN KEY (stock_id) 
 REFERENCES stock (id) ON DELETE CASCADE,
-ADD CONSTRAINT portfolio_id_fk FOREIGN KEY (portfolio_id) 
+ADD CONSTRAINT portfolio_stock_portfolio_id_fk FOREIGN KEY (portfolio_id) 
 REFERENCES portfolio (id) ON DELETE CASCADE;

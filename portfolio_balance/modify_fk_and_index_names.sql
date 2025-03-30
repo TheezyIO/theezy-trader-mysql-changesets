@@ -6,5 +6,5 @@ DROP INDEX portfolio_id,
 ADD INDEX portfolio_id_idx (portfolio_id);
 
 ALTER TABLE portfolio_balance
-ADD CONSTRAINT portfolio_id_fk FOREIGN KEY (portfolio_id) 
+ADD CONSTRAINT portfolio_balance_portfolio_id_fk FOREIGN KEY (portfolio_id) 
 REFERENCES portfolio (id) ON DELETE CASCADE;

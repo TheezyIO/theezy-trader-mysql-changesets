@@ -6,7 +6,7 @@ DROP INDEX user_id,
 ADD INDEX user_id_idx (user_id);
 
 ALTER TABLE portfolio
-ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) 
+ADD CONSTRAINT portfolio_user_id_fk FOREIGN KEY (user_id) 
 REFERENCES user (id) ON DELETE CASCADE;
 
 ALTER TABLE portfolio

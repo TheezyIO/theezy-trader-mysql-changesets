@@ -6,7 +6,7 @@ DROP INDEX account_balance_id,
 ADD INDEX account_balance_id_idx (account_balance_id);
 
 ALTER TABLE account_balance_transaction
-ADD CONSTRAINT account_balance_id_fk FOREIGN KEY (account_balance_id) 
+ADD CONSTRAINT account_balance_transaction_account_balance_id_fk FOREIGN KEY (account_balance_id) 
 REFERENCES account_balance (id) ON DELETE CASCADE;
 
 ALTER TABLE account_balance_transaction
@@ -17,5 +17,5 @@ DROP INDEX transaction_type_id,
 ADD INDEX transaction_type_id_idx (transaction_type_id);
 
 ALTER TABLE account_balance_transaction
-ADD CONSTRAINT transaction_type_id_fk FOREIGN KEY (transaction_type_id) 
+ADD CONSTRAINT account_balance_transaction_transaction_type_id_fk FOREIGN KEY (transaction_type_id) 
 REFERENCES transaction_type (id) ON DELETE CASCADE;

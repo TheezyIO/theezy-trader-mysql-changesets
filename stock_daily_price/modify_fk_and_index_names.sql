@@ -6,5 +6,5 @@ DROP INDEX IF EXISTS stock_id,
 ADD INDEX stock_id_idx (stock_id);
 
 ALTER TABLE stock_daily_price
-ADD CONSTRAINT stock_id_fk FOREIGN KEY (stock_id) 
+ADD CONSTRAINT stock_daily_price_stock_id_fk FOREIGN KEY (stock_id) 
 REFERENCES stock (id) ON DELETE CASCADE;
