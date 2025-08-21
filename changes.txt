@@ -29,3 +29,14 @@
 /portfolio/remove_fee_and_lock_add_members_and_followers.sql
 /portfolio/add_unique_index_name_and_user_id.sql
 /portfolio_balance_daily_history/create.sql
+/account_balance/modify_time_column_defaults.sql
+/account_balance_transaction/modify_time_column_defaults.sql
+/portfolio/modify_time_column_defaults.sql
+/portfolio_balance/modify_time_column_defaults.sql
+/portfolio_balance_transaction/modify_time_column_defaults.sql
+/portfolio_follower/modify_time_column_defaults.sql
+/portfolio_member/modify_time_column_defaults.sql
+/portfolio_stock/modify_time_column_defaults.sql
+/portfolio_stock_transaction/modify_time_column_defaults.sql
+/stock_daily_price/modify_time_column_defaults.sql
+/user/modify_time_column_defaults.sql
